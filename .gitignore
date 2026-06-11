@@ -1,0 +1,44 @@
+# Dependencies
+/vendor/
+front/node_modules/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Laravel runtime
+/bootstrap/cache/*
+!/bootstrap/cache/.gitkeep
+/storage/logs/*
+!/storage/logs/.gitkeep
+/storage/framework/cache/data/*
+!/storage/framework/cache/data/.gitkeep
+/storage/framework/sessions/*
+!/storage/framework/sessions/.gitkeep
+/storage/framework/views/*
+!/storage/framework/views/.gitkeep
+/storage/app/private/*
+!/storage/app/private/.gitkeep
+/storage/app/public/*
+!/storage/app/public/.gitkeep
+
+# Vite build output
+/public/build/
+/public/hot
+
+# Testing
+.phpunit.result.cache
+/coverage/
+
+# Logs
+*.log
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+

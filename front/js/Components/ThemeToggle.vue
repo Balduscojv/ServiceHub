@@ -1,0 +1,36 @@
+<template>
+  <button
+    @click="toggle"
+    class="p-2 rounded-lg text-indigo-200 hover:bg-indigo-600 hover:text-white transition-colors"
+    :title="isDark ? 'Mudar para tema claro' : 'Mudar para tema escuro'"
+    type="button"
+  >
+    <!-- Sun icon (light mode) -->
+    <svg v-if="isDark" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M18.364 18.364l-.707-.707M6.343 6.343l-.707-.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+    </svg>
+    <!-- Moon icon (dark mode) -->
+    <svg v-else class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+    </svg>
+  </button>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const isDark = ref(document.documentElement.classList.contains('dark'));
+
+function toggle() {
+  isDark.value = !isDark.value;
+  if (isDark.value) {
+    document.documentElement.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+    localStorage.setItem('theme', 'light');
+  }
+}
+</script>
